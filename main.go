@@ -14,11 +14,16 @@ var assets embed.FS
 
 func main() {
 	projectName := flag.String("name", "", "project name")
-	projectType := flag.String("type", "", "project type (cli, etc)")
+	projectVersion := flag.String("version", "", "go version")
 
 	flag.Parse()
 
-	generator := cli.NewGeneratorCLI()
+	generathor := &justgo.Generathor{
+		Assets:      assets,
+		ProjectName: projectName,
+		Version:     projectVersion,
+		Generator:   cli.NewGeneratorCLI(),
+	}
 
-	justgo.Run(assets, projectName, projectType, generator)
+	generathor.Run()
 }

@@ -14,7 +14,7 @@ func NewGeneratorCLI() *GeneratorCLI {
 }
 
 // Run creates a CLI project using the embedded assets.
-func (lg *GeneratorCLI) Run(cfg *config.ProjectConfig) {
+func (lg *GeneratorCLI) Run(cfg *config.Cfg) {
 	files.GenFromTemplate("assets", "", "README.md")
 	files.GenFromTemplate("assets", "", "go.mod")
 	files.GenFromTemplate("assets", "", "main.go")

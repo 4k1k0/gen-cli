@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"strings"
+	"time"
 
 	"github.com/4k1k0/gen-cli/internal/cli"
 
@@ -21,6 +22,7 @@ type Details struct {
 	OriginalAuthor string
 	Company        string
 	URL            string
+	Date           string
 }
 
 func main() {
@@ -45,6 +47,7 @@ func main() {
 			OriginalAuthor: *oa,
 			Company:        *c,
 			URL:            "holi",
+			Date:           time.Now().GoString(),
 		},
 	}
 

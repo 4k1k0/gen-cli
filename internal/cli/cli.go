@@ -2,7 +2,7 @@ package cli
 
 import (
 	"github.com/gophers-mx/just-go/config"
-	"github.com/gophers-mx/just-go/pkg"
+	"github.com/gophers-mx/just-go/pkg/files"
 )
 
 // GeneratorCLI creates a new CLI project.
@@ -15,9 +15,9 @@ func NewGeneratorCLI() *GeneratorCLI {
 
 // Run creates a CLI project using the embedded assets.
 func (lg *GeneratorCLI) Run(cfg *config.ProjectConfig) {
-	pkg.GenFromTemplate("assets", "", "README.md")
-	pkg.GenFromTemplate("assets", "", "go.mod")
-	pkg.GenFromTemplate("assets", "", "main.go")
-	pkg.CopyDirectory("assets/cmd", "cmd")
-	pkg.CopyFile("assets", "", "hello.md")
+	files.GenFromTemplate("assets", "", "README.md")
+	files.GenFromTemplate("assets", "", "go.mod")
+	files.GenFromTemplate("assets", "", "main.go")
+	files.CopyDirectory("assets/cmd", "cmd")
+	files.CopyFile("assets", "", "hello.md")
 }
